@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Fantasy Baseball Catcher Ranking</title>
+</head>
+<body>
+    <h1>Rank Catchers</h1>
+    <p>Select a catcher for the next rank:</p>
+    <form method="POST">
+        <select name="catcher">
+            {% for catcher in catchers %}
+            <option value="{{ catcher }}">{{ catcher }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Submit</button>
+    </form>
+
+    <h2>Current Rankings:</h2>
+    <ol>
+        {% for rank, catcher in enumerate(rankings, start=1) %}
+        <li>{{ rank }}: {{ catcher }}</li>
+        {% endfor %}
+    </ol>
+</body>
+</html>
